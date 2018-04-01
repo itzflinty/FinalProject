@@ -1,0 +1,5 @@
+﻿  Source.cpp
+i:\uni\dissertation work\maths\maths\source.cpp(785): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+i:\uni\dissertation work\maths\maths\source.cpp(875): warning C4551: function call missing argument list
+  Maths.vcxproj -> I:\Uni\Dissertation Work\Maths\Debug\Maths.exe
+  Maths.vcxproj -> I:\Uni\Dissertation Work\Maths\Debug\Maths.pdb (Partial PDB)
