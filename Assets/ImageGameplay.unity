@@ -3093,12 +3093,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2bd6fec12cf548850511f80e76ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mathType: 4
+  mathType: 5
   r: 0
   answer: 
   numAns: 0
   ShapeSprite: {fileID: 65601696}
   filePath: Shapes/
+  Symbol: {fileID: 0}
   ansButtons:
   - {fileID: 435500244}
   - {fileID: 127422319}
@@ -3108,6 +3109,8 @@ MonoBehaviour:
   timeForQuestion: 0.15
   score: 0
   valueA: {fileID: 0}
+  valueB: {fileID: 0}
+  OmOl: {fileID: 0}
   scoreMileStoneCount: 0
 --- !u!4 &1835266413
 Transform:

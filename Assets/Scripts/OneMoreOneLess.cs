@@ -20,7 +20,8 @@ public class OneMoreOneLess : MonoBehaviour
         DaysOfTheWeek,
         MonthsOfTheYear,
         NumberWords,
-        shapeGuessing
+        shapeGuessing,
+        MoreThanLessThan
     }
 
     //we make a variable of MathsType
@@ -39,7 +40,12 @@ public class OneMoreOneLess : MonoBehaviour
     
     //Loading the shape image
     public Image ShapeSprite;
+
     public string filePath = "Shapes/";
+    public Image MoreThanSymbol;
+    public Image LessThanSymbol;
+    public Image EqualToSymbol;
+
 
     //varible which will assign ans to any one of the 4 answer button
     private float locationOfAnswer;
@@ -62,6 +68,8 @@ public class OneMoreOneLess : MonoBehaviour
 
     //ref to text in scene where we will assign a and b values of question
     public Text valueA;
+    public Text valueB;
+    public Text OmOl;
     
 
 
@@ -113,9 +121,7 @@ public class OneMoreOneLess : MonoBehaviour
     {
         if (currentMode == 201)
         {
-            //depending on the currentmode value we assign the mode
             mathType = MathType.OnemoreOneless;
-
         }
         else if (currentMode == 202)
         {
@@ -133,6 +139,8 @@ public class OneMoreOneLess : MonoBehaviour
         {
             mathType = MathType.shapeGuessing;
         }
+        else if (currentMode == 206)
+            mathType = MathType.MoreThanLessThan;
     }
 
     // Update is called once per frame
@@ -170,8 +178,8 @@ public class OneMoreOneLess : MonoBehaviour
         switch (mathType)
         {
             case (MathType.OnemoreOneless):
-                // oneMoreoneLess();
-                Debug.Log("bork");
+                OneMoreoneLess();
+                
                 break;
 
             case (MathType.NumberWords):
@@ -188,18 +196,150 @@ public class OneMoreOneLess : MonoBehaviour
             case (MathType.shapeGuessing):
                 mathShapes();
                 break;
+            case (MathType.MoreThanLessThan):
+                moreThanlessThan();
+                break;
         }
     }
 
+    void OneMoreoneLess()
+    {
+        int randomNumber = Random.Range(1, 99);
+        int fiftyFifty = Random.Range(0, 100);
+        int numberOneMore = randomNumber + 1;
+        int numberOneLess = randomNumber - 1;
+        Debug.Log(randomNumber);
+        for (int k = 0; k < ansButtons.Length; k++)
+        {
+            
+            if (fiftyFifty >= 0)
+            {
+                Debug.Log("OneMore than");
+                //One More
+                for (int i = 0; i < ansButtons.Length; i++)
+                {
+                    locationOfAnswer = Random.Range(0, ansButtons.Length);
+                    numAns = randomNumber;
 
+                    valueA.text = "" + numAns;
+                    OmOl.text = " One More ";
+                    Debug.Log("Answer" + randomNumber);
+                    Debug.Log("One more" + numberOneMore);
+                    if (i == locationOfAnswer)
+                    {
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + numberOneMore;
+                    }
+                    else
+                    {
+                        // the below code make sure that all the values assigned to the ans button are within the range
+                        //for ex: if the answer is 45 the other button values will be between 1 to 100
+                        //if you want you can make it more difficult by reducing the range
+                        if (randomNumber <= 20)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 20);
+                            if (Random.Range(0, 20) == numberOneMore)
+                            {
+                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(numberOneMore+1, numberOneMore+10);
+                            }
+                        }
+                        else if (randomNumber <= 40 & a >= 21)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(21, 40);
+                            if (Random.Range(21, 40) == numberOneMore)
+                            {
+                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(numberOneMore + 1, numberOneMore + 10);
+                            }
+                        }
+                        else if (randomNumber <= 60 & a >= 41)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(41, 60);
+                            if (Random.Range(41, 60) == numberOneMore)
+                            {
+                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(numberOneMore + 1, numberOneMore + 10);
+                            }
+                        }
+                        else if (randomNumber <= 80 & a >= 61)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(66, 80);
+                            if (Random.Range(66, 80) == numberOneMore)
+                            {
+                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(numberOneMore + 1, numberOneMore + 10);
+                            }
+                        }
+                        else if (randomNumber <= 100 & a >= 81)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(81, 100);
+                            if (Random.Range(81, 100) == numberOneMore)
+                            {
+                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(numberOneMore + 1, numberOneMore + 10);
+                            }
+                        }
+                        while (ansButtons[i].GetComponentInChildren<Text>().text == "" + numberOneMore)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 100);
+                            if (Random.Range(0, 100) == numberOneMore)
+                            {
+                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 100);
+                            }
+                        }
+                    }
+                }
+            }
+            else if (fiftyFifty >= 51 && fiftyFifty <= 100)
+            {
+                Debug.Log("OneLess than");
+                //One Less
+                for (int i = 0; i < ansButtons.Length; i++)
+                {
+                    locationOfAnswer = Random.Range(0, ansButtons.Length);
+                    numAns = randomNumber;
+                    valueA.text = "" + numAns;
+                    OmOl.text = " One Less ";
+                    Debug.Log("Answer" + randomNumber);
+                    Debug.Log("One less" + numberOneLess);
+                    if (i == locationOfAnswer)
+                    {
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + numberOneLess;
+                    }
+                    else
+                    {
+                        // the below code make sure that all the values assigned to the ans button are within the range
+                        //for ex: if the answer is 45 the other button values will be between 1 to 100
+                        //if you want you can make it more difficult by reducing the range
+                        if (randomNumber <= 20)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 20);
+                        }
+                        else if (randomNumber <= 40 & a >= 21)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(21, 40);
+                        }
+                        else if (randomNumber <= 60 & a >= 41)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(41, 60);
+                        }
+                        else if (randomNumber <= 80 & a >= 61)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(66, 80);
+                        }
+                        else if (randomNumber <= 100 & a >= 81)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(81, 100);
+                        }
+                        while (ansButtons[i].GetComponentInChildren<Text>().text == "" + numberOneLess)
+                        {
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 100);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-    // Number Words
-    //this methode perform addition process
     void numberWords()
     {
         string wordAnswer;
         //string word;
-
         int numberAnswer;
         //gets the array place
         int randomNumber = Random.Range(1, 100);
@@ -225,10 +365,6 @@ public class OneMoreOneLess : MonoBehaviour
         "seventy eight", "seventy nine", "eighty", "eighty one", "eighty two", "eighty three", "eighty four", "eighty five", "eighty six", "eighty seven", "eighty eight", "eighty nine",
         "ninety", "ninety one", "ninety two", "ninety three", "ninety four", "ninety five", "ninety six", "ninety seven", "ninety eight", "ninety nine", "one hundred" };
         #endregion
-
-
-
-
         //get the random number
         //find what place it is in the array
         //output that as the question
@@ -237,7 +373,6 @@ public class OneMoreOneLess : MonoBehaviour
         //check spelling
         //if that value is spelled correctly 
         //+ 1 point
-
 
         //we get the answer value
         wordAnswer = numbersWordsArray[randomNumber];
@@ -339,11 +474,6 @@ public class OneMoreOneLess : MonoBehaviour
         }
     }
 
-
-    // Number Words
-
-    //Subtraction
-    //this methode perform Subtraction process
     void daysOfTheWeek()
     {
         string wordAnswer;
@@ -459,6 +589,7 @@ public class OneMoreOneLess : MonoBehaviour
             }
         }
     }
+
     void mathShapes()
     {
         string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle" };
@@ -466,10 +597,9 @@ public class OneMoreOneLess : MonoBehaviour
         int k = Random.Range(0, 6);
         if (k >= 0 && k <= 6)
         {
-            ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite;
+            ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite; 
         }
 
-        
         //we get the answer value
         answer = shapeName[k];
 
@@ -479,13 +609,11 @@ public class OneMoreOneLess : MonoBehaviour
             {
                 //we check for location value and the assign it to the corresponding ans button 
                 ansButtons[i].GetComponentInChildren<Text>().text = "" + answer;
-
             }
             else
             {
                 //for other ans button we assign random values
                 ansButtons[i].GetComponentInChildren<Text>().text = "" + shapeName[Random.Range(0, 6)];
-
                 while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
                 {
                     //we make sure that only one button has answer values 
@@ -494,7 +622,6 @@ public class OneMoreOneLess : MonoBehaviour
             }
         }
     }
-    
 
     void monthsOfTheYear()
     {
@@ -600,58 +727,38 @@ public class OneMoreOneLess : MonoBehaviour
         }
     }
 
-    
-    //}
-    ////Subtraction
-
-
-    ////Multiplication
-    ////this methode perform Multiplication process
-    //void oneMoreoneLess()
-    //{
-    //    //similar to the addition method only we do multiplication here
-    //    a = Random.Range(1, 10);
-
-    //    locationOfAnswer = Random.Range(0, ansButtons.Length);
-    //    answer = a;
-    //    valueA.text = "" + a;
-
-
-    //    for (int i = 0; i < ansButtons.Length; i++)
-    //    {
-    //        if (i == locationOfAnswer)
-    //        {
-    //            ansButtons[i].GetComponentInChildren<Text>().text = "" + answer;
-    //        }
-    //        else
-    //        {
-    //            // the below code make sure that all the values assigned to the ans button are within the range
-    //            //for ex: if the answer is 45 the other button values will be between 1 to 100
-    //            //if you want you can make it more difficult by reducing the range
-    //            if (a  <= 100)
-    //            {
-    //                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 101);
-    //            }
-    //            else if (a  <= 200 & a > 100)
-    //            {
-    //                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(101, 201);
-    //            }
-    //            else if (a  <= 300 & a  > 200)
-    //            {
-    //                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(201, 301);
-    //            }
-    //            else if (a  <= 400 & a >= 300)
-    //            {
-    //                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(301, 401);
-    //            }
-
-    //            while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
-    //            {
-    //                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 401);
-    //            }
-    //        }
-    //    }
-    //}
+    void moreThanlessThan()
+    {
+        int a = Random.Range(0, 100);
+        int b = Random.Range(0, 100);
+        int c = 0;
+        if (a > b)
+        {
+            c = 0;
+            answer = "MoreThan";
+            locationOfAnswer = 0;
+        }
+        else if (b > a)
+        {
+            c = 1;
+            answer = "LessThan";
+            locationOfAnswer = 1;
+        }
+        else if (a == b)
+        {
+            c = 2;
+            answer = "EqualTo";
+            locationOfAnswer = 2;
+        }
+        Debug.Log("C = " + c);
+        Debug.Log(answer);
+        valueA.text = "" + a;
+        valueB.text = "" + b;
+        
+        MoreThanSymbol.sprite = (Sprite)Resources.Load<Sprite>(filePath + "MoreThan") as Sprite;
+        LessThanSymbol.sprite = (Sprite)Resources.Load<Sprite>(filePath + "LessThan") as Sprite;
+        EqualToSymbol.sprite = (Sprite)Resources.Load<Sprite>(filePath + "EqualTo") as Sprite;      
+    }
 }
 
 

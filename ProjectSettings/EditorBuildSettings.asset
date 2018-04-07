@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ImageGameplay.unity
     guid: b21620aadec30d244a1086e5b8bb1a76
+  - enabled: 1
+    path: Assets/MoreThanLessThan.unity
+    guid: 576cd547f9946ef49b3c3e4ec0d1d20d

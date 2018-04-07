@@ -127,32 +127,35 @@ public class MainMenu : MonoBehaviour
 
     #endregion
 
+    public void OneMoreOneLessMode()
+    {
+        GameManager.singleton.currentMode = 201;
+        SceneManager.LoadScene("WordsGameplay");
+    }
     public void NumberWordMode()
     {
 
         GameManager.singleton.currentMode = 202;
-        // Application.LoadLevel("GamePlay"); // use this for unity below 5.3 version
         SceneManager.LoadScene("WordsGameplay");
     }
     public void DaysOfTheWeekMode()
     {
-
         GameManager.singleton.currentMode = 203;
-        // Application.LoadLevel("GamePlay"); // use this for unity below 5.3 version
         SceneManager.LoadScene("WordsGameplay");
     }
     public void MonthsOfTheYearMode()
     {
-
         GameManager.singleton.currentMode = 204;
-        // Application.LoadLevel("GamePlay"); // use this for unity below 5.3 version
         SceneManager.LoadScene("WordsGameplay");
     }
     public void ShapesMode()
-    {
-
+    { 
         GameManager.singleton.currentMode = 205;
-        // Application.LoadLevel("GamePlay"); // use this for unity below 5.3 version
         SceneManager.LoadScene("ImageGameplay");
+    }
+    public void MoreThanLessThanMode()
+    {
+        GameManager.singleton.currentMode = 206;
+        SceneManager.LoadScene("MoreThanLessThan");
     }
 }
