@@ -103,11 +103,10 @@ public class MathsAndAnswers : MonoBehaviour {
     //this method keeps the track of mode 
     void CurrentMode()
     {
+        //depending on the currentmode value we assign the mode
         if (currentMode == 1)
         {
-            //depending on the currentmode value we assign the mode
             mathsType = MathsType.addition;
-
         }
         else if (currentMode == 2)
         {
@@ -121,48 +120,48 @@ public class MathsAndAnswers : MonoBehaviour {
         {
             mathsType = MathsType.division;
         }
-        
-        else if (currentMode == 11)
+        //Timestables
+        else if (currentMode == 101)
         {
             r = 1;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 12)
+        else if (currentMode == 102)
         {
             r = 2;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 13)
+        else if (currentMode == 103)
         {
             r = 3;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 14)
+        else if (currentMode == 104)
         {
             r = 4;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 15)
+        else if (currentMode == 105)
         {
             r = 5;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 16)
+        else if (currentMode == 106)
         {
             r = 6;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 17)
+        else if (currentMode == 107)
         {
             r = 7;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 18)
+        else if (currentMode == 108)
         {
             r = 8;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 19)
+        else if (currentMode == 109)
         {
             r = 9;
             mathsType = MathsType.timesTable;
@@ -284,9 +283,6 @@ public class MathsAndAnswers : MonoBehaviour {
         }
     }
 
-
-
-  
     // Addition
     //this methode perform addition process
     void AdditionMethod()

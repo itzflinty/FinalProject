@@ -1007,12 +1007,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce2bd6fec12cf548850511f80e76ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mathType: 0
+  mathType: 7
   r: 0
   answer: 
   numAns: 0
   ShapeSprite: {fileID: 0}
   filePath: Shapes/
+  MoreThanSymbol: {fileID: 0}
+  LessThanSymbol: {fileID: 0}
+  EqualToSymbol: {fileID: 0}
   ansButtons:
   - {fileID: 115642460}
   - {fileID: 695371250}
@@ -1022,6 +1025,7 @@ MonoBehaviour:
   timeForQuestion: 0.15
   score: 0
   valueA: {fileID: 1200120786}
+  valueB: {fileID: 1573776014}
   OmOl: {fileID: 1573776014}
   scoreMileStoneCount: 0
 --- !u!4 &503571066
@@ -2824,7 +2828,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &1573776015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3391,7 +3395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 232.26605}
+  m_AnchoredPosition: {x: 0.27246, y: 244}
   m_SizeDelta: {x: 523.99, y: 140.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062033864

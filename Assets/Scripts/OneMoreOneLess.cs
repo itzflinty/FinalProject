@@ -16,12 +16,17 @@ public class OneMoreOneLess : MonoBehaviour
     //its an enum which we help use to identify the current mode of game 
     public enum MathType
     {
-        OnemoreOneless,
+        OneMoreOneLess,
         DaysOfTheWeek,
         MonthsOfTheYear,
         NumberWords,
-        shapeGuessing,
-        MoreThanLessThan
+        ShapeGuessing,
+        MoreThanLessThan,
+        TimeTime,
+        PlaceValues,
+        Fractions,
+        Money,
+        Sizes
     }
 
     //we make a variable of MathsType
@@ -35,11 +40,15 @@ public class OneMoreOneLess : MonoBehaviour
     //the variable for answer value
     [HideInInspector]
     public string answer;
+    //public Image answerImage;
     public int numAns;
 
-    
+
     //Loading the shape image
     public Image ShapeSprite;
+    public Image OneSprite;
+    public Image TwoSprite;
+    public Image ThreeSprite;
 
     public string filePath = "Shapes/";
     public Image MoreThanSymbol;
@@ -51,7 +60,7 @@ public class OneMoreOneLess : MonoBehaviour
     private float locationOfAnswer;
     //ref to the button
     public GameObject[] ansButtons;
-    
+
 
     //get the tag of button 
     public string tagOfButton;
@@ -70,7 +79,7 @@ public class OneMoreOneLess : MonoBehaviour
     public Text valueA;
     public Text valueB;
     public Text OmOl;
-    
+
 
 
     //this is to check the progress of player so we can decrease the time with increase in score
@@ -119,9 +128,10 @@ public class OneMoreOneLess : MonoBehaviour
     //this method keeps the track of mode 
     void CurrentMode()
     {
+        #region 200
         if (currentMode == 201)
         {
-            mathType = MathType.OnemoreOneless;
+            mathType = MathType.OneMoreOneLess;
         }
         else if (currentMode == 202)
         {
@@ -137,10 +147,37 @@ public class OneMoreOneLess : MonoBehaviour
         }
         else if (currentMode == 205)
         {
-            mathType = MathType.shapeGuessing;
+            mathType = MathType.MoreThanLessThan;
         }
         else if (currentMode == 206)
-            mathType = MathType.MoreThanLessThan;
+        {
+            mathType = MathType.PlaceValues;
+        }
+        else if (currentMode == 207)
+        {
+            mathType = MathType.Fractions;
+        }
+        else if (currentMode == 208)
+        {
+            mathType = MathType.Money;
+        }
+        else if (currentMode == 209)
+        {
+            mathType = MathType.Sizes;
+        }
+        #endregion
+        #region 300
+        else if (currentMode == 301)
+        {
+            mathType = MathType.ShapeGuessing;
+        }
+        #endregion
+        #region 400
+        else if (currentMode == 401)
+        {
+            mathType = MathType.TimeTime;
+        }
+        #endregion
     }
 
     // Update is called once per frame
@@ -177,27 +214,42 @@ public class OneMoreOneLess : MonoBehaviour
         //switch case is used to assign method
         switch (mathType)
         {
-            case (MathType.OnemoreOneless):
+            case (MathType.OneMoreOneLess):
                 OneMoreoneLess();
-                
+
                 break;
 
             case (MathType.NumberWords):
-                numberWords();
+                NumberWords();
                 Debug.Log("Word Time");
                 break;
 
             case (MathType.DaysOfTheWeek):
-                daysOfTheWeek();
+                DaysOfTheWeek();
                 break;
             case (MathType.MonthsOfTheYear):
-                monthsOfTheYear();
+                MonthsOfTheYear();
                 break;
-            case (MathType.shapeGuessing):
-                mathShapes();
+            case (MathType.ShapeGuessing):
+                MathShapes();
                 break;
             case (MathType.MoreThanLessThan):
-                moreThanlessThan();
+                MoreThanlessThan();
+                break;
+            case (MathType.TimeTime):
+                TimeGameplay();
+                break;
+            case (MathType.PlaceValues):
+                PlaceValues();
+                break;
+            case (MathType.Fractions):
+                Fractions();
+                break;
+            case (MathType.Money):
+                Money();
+                break;
+            case (MathType.Sizes):
+                Sizes();
                 break;
         }
     }
@@ -211,7 +263,7 @@ public class OneMoreOneLess : MonoBehaviour
         Debug.Log(randomNumber);
         for (int k = 0; k < ansButtons.Length; k++)
         {
-            
+
             if (fiftyFifty >= 0)
             {
                 Debug.Log("OneMore than");
@@ -239,7 +291,7 @@ public class OneMoreOneLess : MonoBehaviour
                             ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 20);
                             if (Random.Range(0, 20) == numberOneMore)
                             {
-                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(numberOneMore+1, numberOneMore+10);
+                                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(numberOneMore + 1, numberOneMore + 10);
                             }
                         }
                         else if (randomNumber <= 40 & a >= 21)
@@ -336,7 +388,7 @@ public class OneMoreOneLess : MonoBehaviour
         }
     }
 
-    void numberWords()
+    void NumberWords()
     {
         string wordAnswer;
         //string word;
@@ -356,14 +408,7 @@ public class OneMoreOneLess : MonoBehaviour
         "Seventy Eight", "Seventy Nine", "Eighty", "Eighty One", "Eighty Two", "Eighty Three", "Eighty Four", "Eighty Five", "Eighty Six", "Eighty Seven", "Eighty Eight", "Eighty Nine",
         "Ninety", "Ninety One", "Ninety Two", "Ninety Three", "Ninety Four", "Ninety Five", "Ninety Six", "Ninety Seven", "Ninety Eight", "Ninety Nine", "One Hundred" };
 
-        string[] numbersWordsArray2 = new string[]{ "zero","one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
-        "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty one", "twenty two", "twenty three", "twenty four", "twenty five", "twenty six", "twenty seven",
-        "twenty eight", "twenty nine", "thirty", "thirty one", "thirty two", "thirty three", "thirty four", "thirty five", "thirty six", "thirty seven", "thirty eight", "thirty nine",
-        "forty", "forty one", "forty two", "forty three", "forty four", "forty five", "forty six", "forty seven", "forty eight", "forty nine", "fifty", "fifty one", "fifty two",
-        "fifty three", "fifty four", "fifty five", "fifty six", "fifty seven", "fifty night", "fifty nine", "sixty","sixty one", "sixty two", "sixty three", "sixty four", "sixty five",
-        "sixty six", "sixty seven", "sixty eight", "sixty nine", "seventy", "seventy one", "seventy two", "seventy three", "seventy four", "seventy five", "seventy six", "seventy seven",
-        "seventy eight", "seventy nine", "eighty", "eighty one", "eighty two", "eighty three", "eighty four", "eighty five", "eighty six", "eighty seven", "eighty eight", "eighty nine",
-        "ninety", "ninety one", "ninety two", "ninety three", "ninety four", "ninety five", "ninety six", "ninety seven", "ninety eight", "ninety nine", "one hundred" };
+       
         #endregion
         //get the random number
         //find what place it is in the array
@@ -474,7 +519,7 @@ public class OneMoreOneLess : MonoBehaviour
         }
     }
 
-    void daysOfTheWeek()
+    void DaysOfTheWeek()
     {
         string wordAnswer;
         //string word;
@@ -590,14 +635,14 @@ public class OneMoreOneLess : MonoBehaviour
         }
     }
 
-    void mathShapes()
+    void MathShapes()
     {
         string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle" };
 
         int k = Random.Range(0, 6);
         if (k >= 0 && k <= 6)
         {
-            ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite; 
+            ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite;
         }
 
         //we get the answer value
@@ -623,7 +668,7 @@ public class OneMoreOneLess : MonoBehaviour
         }
     }
 
-    void monthsOfTheYear()
+    void MonthsOfTheYear()
     {
         string wordAnswer;
         //string word;
@@ -727,7 +772,7 @@ public class OneMoreOneLess : MonoBehaviour
         }
     }
 
-    void moreThanlessThan()
+    void MoreThanlessThan()
     {
         int a = Random.Range(0, 100);
         int b = Random.Range(0, 100);
@@ -754,13 +799,342 @@ public class OneMoreOneLess : MonoBehaviour
         Debug.Log(answer);
         valueA.text = "" + a;
         valueB.text = "" + b;
-        
+
         MoreThanSymbol.sprite = (Sprite)Resources.Load<Sprite>(filePath + "MoreThan") as Sprite;
         LessThanSymbol.sprite = (Sprite)Resources.Load<Sprite>(filePath + "LessThan") as Sprite;
-        EqualToSymbol.sprite = (Sprite)Resources.Load<Sprite>(filePath + "EqualTo") as Sprite;      
+        EqualToSymbol.sprite = (Sprite)Resources.Load<Sprite>(filePath + "EqualTo") as Sprite;
+    }
+
+    void TimeGameplay()
+    {
+        int hours = Random.Range(1, 12);
+        int minutes = Random.Range(0, 59);
+        int timeTo = 60 - minutes;
+        int prefix = 0;
+
+        Debug.Log("Hours: " + hours);
+        Debug.Log("Minutes: " + minutes);
+        Debug.Log("Time To: " + timeTo);
+
+        string[] timeDesc = new string[] { " O'clock ", " Past", " Quater Past ", " Half Past ", " To ", " Quater To " };
+
+        for (int i = 0; i < ansButtons.Length; i++)
+        {
+            if (minutes == 0)
+            {
+                prefix = 0;
+                valueA.text = "The Time is " + hours + timeDesc[prefix];
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    }
+                }
+            }
+            else if (minutes >= 1 && minutes <= 9 && minutes != 15)
+            {
+                prefix = 1;
+                valueA.text = "The Time is " + minutes + timeDesc[prefix] + hours;
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    }
+                }
+            }
+            else if (minutes >= 11 && minutes <= 29 && minutes != 15)
+            {
+                prefix = 1;
+                valueA.text = "The Time is " + minutes + timeDesc[prefix] + hours;
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    }
+                }
+            }
+            else if (minutes == 15)
+            {
+                prefix = 2;
+                valueA.text = "The Time is " + timeDesc[prefix] + hours;
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    }
+                }
+            }
+            else if (minutes == 30)
+            {
+                prefix = 3;
+                valueA.text = "The Time is " + timeDesc[prefix] + hours;
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    }
+                }
+            }
+            else if (minutes >= 31 && minutes <= 59 && minutes != 45)
+            {
+                prefix = 4;
+                valueA.text = "The Time is " + timeTo + timeDesc[prefix] + hours;
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + (hours - 1) + " : " + minutes;
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    }
+                }
+            }
+            else if (minutes == 45)
+            {
+                prefix = 5;
+                valueA.text = "The Time is " + timeDesc[prefix] + hours;
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + (hours -1) + " : " + minutes;
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 12) + " : " + Random.Range(0, 59);
+                    }
+                }
+            }
+            
+        }
+        
+        
+
+
+    }
+
+    void PlaceValues()
+    {
+        int hundreds = Random.Range(0, 10);
+        int tens = Random.Range(0, 9);
+        int units = Random.Range(0, 10);
+        int third = Random.Range(1, 99);
+        int number = (hundreds * 100) + (tens * 10) + units;
+        valueA.text = "" + number;
+        if (third >= 1 && third <= 33)
+        {
+            //How many Units
+            valueB.text = "How Many Units?";
+            for (int i = 0; i < ansButtons.Length; i++)
+            {
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + units;
+
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
+
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
+                    }
+                }
+
+            }
+        }
+        else if (third >= 34 && third <= 66)
+        {
+            //How many Tens
+            valueB.text = "How Many Tens?";
+            for (int i = 0; i < ansButtons.Length; i++)
+            {
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + tens;
+
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
+
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
+                    }
+                }
+
+            }
+        }
+        else if (third >= 67 && third <= 99)
+        {
+            //How many Hundreds
+            valueB.text = "How Many Hundreds?";
+            for (int i = 0; i < ansButtons.Length; i++)
+            {
+                if (i == locationOfAnswer)
+                {
+                    //we check for location value and the assign it to the corresponding ans button 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hundreds;
+
+                }
+                else
+                {
+                    //for other ans button we assign random values
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
+
+                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        //we make sure that only one button has answer values 
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
+                    }
+                }
+
+            }
+        }
+    }
+
+    void Fractions()
+    {
+
+    }
+    void Money()
+    {
+
+    }
+    void Sizes()
+    {
+        string[] LargeImageName = new string[] { "Large" };
+        string[] MediumImageName = new string[] { "Medium" };
+        string[] SmallImageName = new string[] { "Small" };
+
+        
+        int quater = Random.Range(1, 100);
+        int third = Random.Range(1, 99);
+        int k = Random.Range(0, 6);
+        Debug.Log(third);
+        if (third >= 1 && third <= 33)
+        {
+            if (k >= 0 && k <= 6)
+            {
+                //Order 1
+                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + LargeImageName[0]) as Sprite;
+                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + MediumImageName[0]) as Sprite;
+                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]) as Sprite;
+            }
+        }
+        else if (third >= 34 && third <= 66)
+        {
+            if (k >= 0 && k <= 6)
+            {
+                //Order 2
+                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + LargeImageName[0]) as Sprite;
+                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + MediumImageName[0]) as Sprite;
+                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]) as Sprite;
+            }
+        }
+        else if (third >= 67 && third <= 99)
+        {
+            if (k >= 0 && k <= 6)
+            {
+                //Order 3
+                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + LargeImageName[0]) as Sprite;
+                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + MediumImageName[0]) as Sprite;
+                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]) as Sprite;
+            }
+        }
+        if (quater >= 1 && quater <= 25)
+        {
+            //How many Units
+            valueB.text = "Which Is The Smallest";
+            //answerImage.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]);
+            
+
+        }
+        else if (quater >= 26 && quater <= 50)
+        {
+            //How many Tens
+            valueB.text = "Which is the Largest?";
+            
+            //answerImage.sprite = (Sprite)Resources.Load<Sprite>(filePath + LargeImageName[0]);
+            
+        }
+        else if (quater >= 51 && quater <= 75)
+        {
+            //How many Hundreds
+            valueB.text = "Which is the Shortest";
+            //answerImage.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]);
+            
+        }
+        else if (quater >= 76 && quater <= 100)
+        {
+            //How many Hundreds
+            valueB.text = "Which is the Longest";
+            
+           
+        }
     }
 }
-
-
-
 
