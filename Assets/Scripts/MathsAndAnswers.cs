@@ -15,10 +15,14 @@ public class MathsAndAnswers : MonoBehaviour {
     //its an enum which we help use to identify the current mode of game 
     public enum MathsType
     {
-        addition,
-        subtraction,
-        multiplication,
-        division,
+        y1addition,
+        y1subtraction,
+        y1multiplication,
+        y1division,
+        y2addition,
+        y2subtraction,
+        y2multiplication,
+        y2division,
         timesTable
     }
 
@@ -104,79 +108,95 @@ public class MathsAndAnswers : MonoBehaviour {
     void CurrentMode()
     {
         //depending on the currentmode value we assign the mode
-        if (currentMode == 1)
+        if (currentMode == 101)
         {
-            mathsType = MathsType.addition;
+            mathsType = MathsType.y1addition;
         }
-        else if (currentMode == 2)
+        else if (currentMode == 102)
         {
-            mathsType = MathsType.subtraction;
+            mathsType = MathsType.y1subtraction;
         }
-        else if (currentMode == 3)
+        else if (currentMode == 103)
         {
-            mathsType = MathsType.multiplication;
+            mathsType = MathsType.y1multiplication;
         }
-        else if (currentMode == 4)
+        else if (currentMode == 104)
         {
-            mathsType = MathsType.division;
+            mathsType = MathsType.y1division;
+        }
+        if (currentMode == 201)
+        {
+            mathsType = MathsType.y2addition;
+        }
+        else if (currentMode == 202)
+        {
+            mathsType = MathsType.y2subtraction;
+        }
+        else if (currentMode == 203)
+        {
+            mathsType = MathsType.y2multiplication;
+        }
+        else if (currentMode == 204)
+        {
+            mathsType = MathsType.y2division;
         }
         //Timestables
-        else if (currentMode == 101)
+        else if (currentMode == 001)
         {
             r = 1;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 102)
+        else if (currentMode == 002)
         {
             r = 2;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 103)
+        else if (currentMode == 003)
         {
             r = 3;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 104)
+        else if (currentMode == 004)
         {
             r = 4;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 105)
+        else if (currentMode == 005)
         {
             r = 5;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 106)
+        else if (currentMode == 006)
         {
             r = 6;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 107)
+        else if (currentMode == 007)
         {
             r = 7;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 108)
+        else if (currentMode == 008)
         {
             r = 8;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 109)
+        else if (currentMode == 009)
         {
             r = 9;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 110)
+        else if (currentMode == 010)
         {
             r = 10;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 111)
+        else if (currentMode == 011)
         {
             r = 11;
             mathsType = MathsType.timesTable;
         }
-        else if (currentMode == 112)
+        else if (currentMode == 012)
         {
             r = 12;
             mathsType = MathsType.timesTable;
@@ -217,22 +237,30 @@ public class MathsAndAnswers : MonoBehaviour {
         //switch case is used to assign method
         switch (mathsType)
         {
-            case (MathsType.addition):
-                AdditionMethod();
+            case (MathsType.y1addition):
+                y1AdditionMethod();
                 break;
-
-            case (MathsType.subtraction):
-                SubtractionMethod();
+            case (MathsType.y1subtraction):
+                y1SubtractionMethod();
                 break;
-
-            case (MathsType.multiplication):
-                MultiplicationMethod();
+            case (MathsType.y1multiplication):
+                y1MultiplicationMethod();
                 break;
-
-            case (MathsType.division):
-                DivisionMethod();
+            case (MathsType.y1division):
+                y1DivisionMethod();
                 break;
-
+            case (MathsType.y2addition):
+                y2AdditionMethod();
+                break;
+            case (MathsType.y2subtraction):
+                y2SubtractionMethod();
+                break;
+            case (MathsType.y2multiplication):
+                y2MultiplicationMethod();
+                break;
+            case (MathsType.y2division):
+                y2DivisionMethod();
+                break;
             case (MathsType.timesTable):
                 TimesTable();
                 break;
@@ -270,14 +298,27 @@ public class MathsAndAnswers : MonoBehaviour {
                 if (a * b <= 50)
                 {
                     ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 51);
+                    if (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 75);
+                    }
                 }
                 else if (a * b <= 100 & a * b > 50)
                 {
+
                     ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(51, 101);
+                    if (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(51, 101);
+                    }
                 }
                 else if (a * b <= 150 & a * b > 100)
                 {
                     ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(101, 151);
+                    if (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    {
+                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(101, 151);
+                    }
                 }
             }
         }
@@ -285,7 +326,7 @@ public class MathsAndAnswers : MonoBehaviour {
 
     // Addition
     //this methode perform addition process
-    void AdditionMethod()
+    void y1AdditionMethod()
     {
         //we assign the random number to a and b , it range from 0 - 21
         a = Random.Range(0, 51);
@@ -328,11 +369,7 @@ public class MathsAndAnswers : MonoBehaviour {
         }
 
     }
-    // Addition
-
-    //Subtraction
-    //this methode perform Subtraction process
-    void SubtractionMethod()
+    void y1SubtractionMethod()
     {
         //similar to the addition method only we do subtraction here
         a = Random.Range(0, 100);
@@ -375,12 +412,7 @@ public class MathsAndAnswers : MonoBehaviour {
         }
 
     }
-    //Subtraction
-
-
-    //Multiplication
-    //this methode perform Multiplication process
-    void MultiplicationMethod()
+    void y1MultiplicationMethod()
     {
         //similar to the addition method only we do multiplication here
         a = Random.Range(1, 10);
@@ -426,12 +458,193 @@ public class MathsAndAnswers : MonoBehaviour {
             }
         }
     }
-    //Multiplication
+    void y1DivisionMethod()
+    {
+        //similar to addition method
+        a = Random.Range(1, 100);
+        b = Random.Range(1, 100);
+
+        //here  % is called modular , now the modular gives us the remainder
+        //for ex: if we divide 3 by 2 we get remainder 1 
+        //we here check that if remainder is not equal to zero , we again assign values to ques and we keep doing it
+        //until we get zero as reminder
+        while (a % b != 0)
+        {
+            a = Random.Range(1, 100);
+            b = Random.Range(1, 100);
+        }
+
+        answer = a / b;
 
 
-    //Division
-    //this methode perform Division process
-    void DivisionMethod()
+        locationOfAnswer = Random.Range(0, ansButtons.Length);
+
+        valueA.text = "" + a;
+        valueB.text = "" + b;
+
+        mathSymbolObject.sprite = mathSymbols[3];
+
+        for (int i = 0; i < ansButtons.Length; i++)
+        {
+            if (i == locationOfAnswer)
+            {
+                if (answer - (int)answer != 0)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = answer.ToString("F1");
+                }
+                else
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + answer;
+                }
+
+            }
+            else
+            {
+                //here range is less because our number for division are less
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 100);
+
+                while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 100);
+                }
+            }
+
+        }
+
+    }
+    void y2AdditionMethod()
+    {
+        //we assign the random number to a and b , it range from 0 - 21
+        a = Random.Range(0, 51);
+        b = Random.Range(0, 51);
+
+        //we the assign the location of answer a random number from our total number of buttons
+        locationOfAnswer = Random.Range(0, ansButtons.Length);
+
+        //we get the answer value
+        answer = a + b;
+
+        //the question values are assigned to question text
+        valueA.text = "" + a;
+        valueB.text = "" + b;
+
+        //and we assign the math symbol to symbol image
+        mathSymbolObject.sprite = mathSymbols[0];
+
+        //now we assign the values to the ans buttons
+        for (int i = 0; i < ansButtons.Length; i++)
+        {
+            if (i == locationOfAnswer)
+            {
+                //we check for location value and the assign it to the corresponding ans button 
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + answer;
+
+            }
+            else
+            {
+                //for other ans button we assign random values
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+
+                while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                {
+                    //we make sure that only one button has answer values 
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+                }
+            }
+
+        }
+
+    }
+    void y2SubtractionMethod()
+    {
+        //similar to the addition method only we do subtraction here
+        a = Random.Range(0, 100);
+        b = Random.Range(0, 100);
+
+        while (a <= b)
+        {
+            a = Random.Range(0, 100);
+            b = Random.Range(0, 100);
+        }
+
+
+        locationOfAnswer = Random.Range(0, ansButtons.Length);
+
+        answer = a - b;
+
+        valueA.text = "" + a;
+        valueB.text = "" + b;
+
+        mathSymbolObject.sprite = mathSymbols[1];
+
+        for (int i = 0; i < ansButtons.Length; i++)
+        {
+            if (i == locationOfAnswer)
+            {
+
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + answer;
+
+            }
+            else
+            {
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+
+                while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+                }
+            }
+
+        }
+
+    }
+    void y2MultiplicationMethod()
+    {
+        //similar to the addition method only we do multiplication here
+        a = Random.Range(1, 10);
+        b = Random.Range(1, 10);
+        locationOfAnswer = Random.Range(0, ansButtons.Length);
+        answer = a * b;
+        valueA.text = "" + a;
+        valueB.text = "" + b;
+        mathSymbolObject.sprite = mathSymbols[2];
+
+        for (int i = 0; i < ansButtons.Length; i++)
+        {
+            if (i == locationOfAnswer)
+            {
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + answer;
+            }
+            else
+            {
+                // the below code make sure that all the values assigned to the ans button are within the range
+                //for ex: if the answer is 45 the other button values will be between 1 to 100
+                //if you want you can make it more difficult by reducing the range
+                if (a * b <= 100)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 101);
+                }
+                else if (a * b <= 200 & a * b > 100)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(101, 201);
+                }
+                else if (a * b <= 300 & a * b > 200)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(201, 301);
+                }
+                else if (a * b <= 400 & a * b > 300)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(301, 401);
+                }
+
+                while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                {
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 401);
+                }
+            }
+        }
+    }
+    void y2DivisionMethod()
     {
         //similar to addition method
         a = Random.Range(1, 100);
@@ -487,6 +700,6 @@ public class MathsAndAnswers : MonoBehaviour {
     }
 }
 
-    //Division
+
 
     

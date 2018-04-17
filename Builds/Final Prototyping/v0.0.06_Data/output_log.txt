@@ -1,0 +1,56 @@
+Mono path[0] = 'E:/Uni/FinalProject/Builds/Final Prototyping/v0.0.06_Data/Managed'
+Mono path[1] = 'E:/Uni/FinalProject/Builds/Final Prototyping/v0.0.06_Data/Mono'
+Mono config path = 'E:/Uni/FinalProject/Builds/Final Prototyping/v0.0.06_Data/Mono/etc'
+PlayerConnection initialized from E:/Uni/FinalProject/Builds/Final Prototyping/v0.0.06_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55245
+Multi-casting "[IP] 193.63.128.127 [Port] 55245 [Flags] 2 [Guid] 44465954 [EditorId] 3787746668 [Version] 1048832 [Id] WindowsPlayer(TRJ208-28) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55245]
+PlayerConnection already initialized - listening to [0.0.0.0:55245]
+Player data archive not found at `E:/Uni/FinalProject/Builds/Final Prototyping/v0.0.06_Data/data.unity3d`, using local filesystemInitialize engine version: 5.6.3p2 (b3d7a6428558)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     4007 MB
+    Driver:   22.21.13.8494
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\TextMeshPro-2017.3-1.0.56-Runtime.dll (this message is harmless)
+Loading E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\TextMeshPro-2017.3-1.0.56-Runtime.dll into Unity Child Domain
+- Completed reload, in  0.015 seconds
+Platform assembly: E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Uni\FinalProject\Builds\Final Prototyping\v0.0.06_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.708444 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 271c -> priority: 1 
+  Thread -> id: 2428 -> priority: 1 
+  Thread -> id: 23e8 -> priority: 1 
+  Thread -> id: 2228 -> priority: 1 
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.163910 ms
+System memory in use before: 19.7 MB.
+System memory in use after: 19.7 MB.
+
+Unloading 44 unused Assets to reduce memory usage. Loaded Objects now: 520.
+Total: 0.525987 ms (FindLiveObjects: 0.024517 ms CreateObjectMapping: 0.015394 ms MarkObjects: 0.408816 ms  DeleteObjects: 0.076973 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.465924 ms
+System memory in use before: 20.0 MB.
+System memory in use after: 20.0 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1319.
+Total: 2.656452 ms (FindLiveObjects: 0.043048 ms CreateObjectMapping: 0.023662 ms MarkObjects: 2.535575 ms  DeleteObjects: 0.053881 ms)
+
