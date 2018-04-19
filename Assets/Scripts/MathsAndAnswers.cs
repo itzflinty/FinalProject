@@ -323,14 +323,12 @@ public class MathsAndAnswers : MonoBehaviour {
             }
         }
     }
-
-    // Addition
-    //this methode perform addition process
+    //Year 1
     void y1AdditionMethod()
     {
         //we assign the random number to a and b , it range from 0 - 21
-        a = Random.Range(0, 51);
-        b = Random.Range(0, 51);
+        a = Random.Range(0, 20);
+        b = Random.Range(0, 20);
 
         //we the assign the location of answer a random number from our total number of buttons
         locationOfAnswer = Random.Range(0, ansButtons.Length);
@@ -357,12 +355,12 @@ public class MathsAndAnswers : MonoBehaviour {
             else
             {
                 //for other ans button we assign random values
-                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 40);
 
                 while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
                 {
                     //we make sure that only one button has answer values 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 40);
                 }
             }
 
@@ -372,13 +370,13 @@ public class MathsAndAnswers : MonoBehaviour {
     void y1SubtractionMethod()
     {
         //similar to the addition method only we do subtraction here
-        a = Random.Range(0, 100);
-        b = Random.Range(0, 100);
+        a = Random.Range(0, 20);
+        b = Random.Range(0, 20);
 
         while (a <= b)
         {
-            a = Random.Range(0, 100);
-            b = Random.Range(0, 100);
+            a = Random.Range(0, 20);
+            b = Random.Range(0, 20);
         }
 
 
@@ -401,11 +399,11 @@ public class MathsAndAnswers : MonoBehaviour {
             }
             else
             {
-                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 40);
 
                 while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
                 {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 102);
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 40);
                 }
             }
 
@@ -415,8 +413,8 @@ public class MathsAndAnswers : MonoBehaviour {
     void y1MultiplicationMethod()
     {
         //similar to the addition method only we do multiplication here
-        a = Random.Range(1, 10);
-        b = Random.Range(1, 10);
+        a = Random.Range(0, 10);
+        b = Random.Range(0, 10);
         locationOfAnswer = Random.Range(0, ansButtons.Length);
         answer = a * b;
         valueA.text = "" + a;
@@ -436,24 +434,11 @@ public class MathsAndAnswers : MonoBehaviour {
                 //if you want you can make it more difficult by reducing the range
                 if (a * b <= 100)
                 {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 101);
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 100);
                 }
-                else if (a * b <= 200 & a * b > 100)
+                 while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
                 {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(101, 201);
-                }
-                else if (a * b <= 300 & a * b > 200)
-                {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(201, 301);
-                }
-                else if (a * b <= 400 & a * b > 300)
-                {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(301, 401);
-                }
-
-                while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
-                {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 401);
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(0, 100);
                 }
             }
         }
@@ -462,7 +447,7 @@ public class MathsAndAnswers : MonoBehaviour {
     {
         //similar to addition method
         a = Random.Range(1, 100);
-        b = Random.Range(1, 100);
+        b = Random.Range(1, 10);
 
         //here  % is called modular , now the modular gives us the remainder
         //for ex: if we divide 3 by 2 we get remainder 1 
@@ -471,7 +456,7 @@ public class MathsAndAnswers : MonoBehaviour {
         while (a % b != 0)
         {
             a = Random.Range(1, 100);
-            b = Random.Range(1, 100);
+            b = Random.Range(1, 10);
         }
 
         answer = a / b;
@@ -512,6 +497,7 @@ public class MathsAndAnswers : MonoBehaviour {
         }
 
     }
+    //Year 2
     void y2AdditionMethod()
     {
         //we assign the random number to a and b , it range from 0 - 21
@@ -601,8 +587,8 @@ public class MathsAndAnswers : MonoBehaviour {
     void y2MultiplicationMethod()
     {
         //similar to the addition method only we do multiplication here
-        a = Random.Range(1, 10);
-        b = Random.Range(1, 10);
+        a = Random.Range(1, 12);
+        b = Random.Range(1, 12);
         locationOfAnswer = Random.Range(0, ansButtons.Length);
         answer = a * b;
         valueA.text = "" + a;
@@ -620,24 +606,11 @@ public class MathsAndAnswers : MonoBehaviour {
                 // the below code make sure that all the values assigned to the ans button are within the range
                 //for ex: if the answer is 45 the other button values will be between 1 to 100
                 //if you want you can make it more difficult by reducing the range
-                if (a * b <= 100)
+                if (a * b <= 144)
                 {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 101);
-                }
-                else if (a * b <= 200 & a * b > 100)
-                {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(101, 201);
-                }
-                else if (a * b <= 300 & a * b > 200)
-                {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(201, 301);
-                }
-                else if (a * b <= 400 & a * b > 300)
-                {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(301, 401);
-                }
-
-                while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 150);
+                }               
+                 while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
                 {
                     ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 401);
                 }
@@ -647,8 +620,8 @@ public class MathsAndAnswers : MonoBehaviour {
     void y2DivisionMethod()
     {
         //similar to addition method
-        a = Random.Range(1, 100);
-        b = Random.Range(1, 100);
+        a = Random.Range(1, 144);
+        b = Random.Range(1, 12);
 
         //here  % is called modular , now the modular gives us the remainder
         //for ex: if we divide 3 by 2 we get remainder 1 
@@ -656,8 +629,8 @@ public class MathsAndAnswers : MonoBehaviour {
         //until we get zero as reminder
         while (a % b != 0)
         {
-            a = Random.Range(1, 100);
-            b = Random.Range(1, 100);
+            a = Random.Range(1, 144);
+            b = Random.Range(1, 12);
         }
 
         answer = a / b;
@@ -687,11 +660,11 @@ public class MathsAndAnswers : MonoBehaviour {
             else
             {
                 //here range is less because our number for division are less
-                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 100);
+                ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 144);
 
                 while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
                 {
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 100);
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 144);
                 }
             }
 

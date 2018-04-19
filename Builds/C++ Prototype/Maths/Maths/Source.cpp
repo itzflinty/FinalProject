@@ -31,7 +31,6 @@ int addition()
 	int ques2[10];
 	int answer[10];
 	int mark = 0;
-
 	//A for loop to work 10 times
 	for (int i = 0; i < 10; i++)
 	{
@@ -56,10 +55,6 @@ int addition()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Enter a *number*: ";
 		}
-
-		//Error checker to make sure the answer is worked out correctly
-		//cout << ans << endl;
-
 		//If the answer is correct
 		if (ans == guess)
 		{
@@ -70,10 +65,6 @@ int addition()
 			//Show how many points they have got so far
 			cout << "Answers correct " << mark << " / " << (i + 1) << endl << endl;
 			answer[i] = ans;
-
-			//cout << "ques 1 : " << ques1[i] << endl;
-			//cout << "ques 2 : " << ques2[i] << endl;
-			//cout << "answer : " << answer[i] << endl;
 		}
 		else
 		{
@@ -83,20 +74,10 @@ int addition()
 
 			cout << "Answers correct: " << mark << " / " << (i + 1) << endl << endl;
 			answer[i] = ans;
-
-			//cout << "ques 1 : " << ques1[i] << endl;
-			//cout << "ques 2 : " << ques2[i] << endl;
-			//cout << "answer : " << answer[i] << endl;
 		}
-
-
 	}
-
-
-
 	//Output all of the correct answers
 	cout << "The Correct Answers were: " << endl;
-
 	cout << "1. " << "\t" << ques1[0] << " + " << ques2[0] << " = " << answer[0] << endl;
 	cout << "2. " << "\t" << ques1[1] << " + " << ques2[1] << " = " << answer[1] << endl;
 	cout << "3. " << "\t" << ques1[2] << " + " << ques2[2] << " = " << answer[2] << endl;
@@ -126,7 +107,6 @@ int subtraction()
 	{
 		q1 = rand() % 100;
 		q2 = rand() % 100;
-		
 		if (q1 >= q2)
 		{
 			ans = q1 - q2;
@@ -143,7 +123,6 @@ int subtraction()
 			ques1[i] = q2;
 			ques2[i] = q1;
 		}
-		
 		while (!(std::cin >> guess))
 		{
 			// reset the status of the stream
@@ -152,8 +131,6 @@ int subtraction()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Enter a *number*: ";
 		}
-		//cout << ans << endl;
-
 		if (ans == guess)
 		{
 			cout << "Correct! The answer was " << ans << endl;
@@ -169,7 +146,6 @@ int subtraction()
 		}
 	}
 	cout << "The Correct Answers were: " << endl;
-
 	cout << "1. " << "\t" << ques1[0] << " - " << ques2[0] << " = " << answer[0] << endl;
 	cout << "2. " << "\t" << ques1[1] << " - " << ques2[1] << " = " << answer[1] << endl;
 	cout << "3. " << "\t" << ques1[2] << " - " << ques2[2] << " = " << answer[2] << endl;
@@ -181,13 +157,10 @@ int subtraction()
 	cout << "9. " << "\t" << ques1[8] << " - " << ques2[8] << " = " << answer[8] << endl;
 	cout << "10. " << "\t" << ques1[9] << " - " << ques2[9] << " = " << answer[9] << endl;
 	
-
 	cout << endl << "Returning To Menu ..." << endl;
 	wait(2);
 	system("CLS");
-
 	return 0;
-	
 }
 
 int division()
@@ -200,13 +173,11 @@ int division()
 	{
 		q1 = rand() % 12 + 1;
 		q2 = rand() % 12 + 1;
-
 		ans = q1 * q2;
 		cout << "Question " << (i + 1) << ": " << endl;
 		cout << ans << " / " << q2 << " = ";
 		ques1[i] = ans;
 		ques2[i] = q2;
-
 		while (!(std::cin >> guess))
 		{
 			// reset the status of the stream
@@ -215,8 +186,6 @@ int division()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Enter a *number*: ";
 		}
-		//cout << q1 << endl;
-
 		if (q1 == guess)
 		{
 			cout << "Correct! The answer was " << q1 << endl;
@@ -232,7 +201,6 @@ int division()
 		}
 	}
 	cout << "The Correct Answers were: " << endl;
-
 	cout << "1. " << "\t" << ques1[0] << " / " << ques2[0] << " = " << answer[0] << endl;
 	cout << "2. " << "\t" << ques1[1] << " / " << ques2[1] << " = " << answer[1] << endl;
 	cout << "3. " << "\t" << ques1[2] << " / " << ques2[2] << " = " << answer[2] << endl;
@@ -244,7 +212,6 @@ int division()
 	cout << "9. " << "\t" << ques1[8] << " / " << ques2[8] << " = " << answer[8] << endl;
 	cout << "10. " << "\t" << ques1[9] << " / " << ques2[9] << " = " << answer[9] << endl;
 	
-
 	cout << endl <<"Returning To Menu ..." << endl;
 	wait(2);
 	system("CLS");
@@ -284,7 +251,6 @@ int timestable()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Enter a *number*: ";
 		}
-
 		if (ans == guess)
 		{
 			cout << "Correct!" << endl;
@@ -299,8 +265,6 @@ int timestable()
 			cout << "Answers correct " << mark << " / " << (i + 1) << endl << endl;
 			answer[i] = ans;
 		}
-
-
 	}
 	cout << "1. " << "\t" <<  ques1[0] << " x " << ques2[0] << " = " << answer[0] << endl;
 	cout << "2. " << "\t" << ques1[1] << " x " << ques2[1] << " = " << answer[1] << endl;
@@ -315,12 +279,10 @@ int timestable()
 	cout << "11. " << "\t" << ques1[10] << " x " << ques2[10] << " = " << answer[10] << endl;
 	cout << "12. " << "\t" << ques1[11] << " x " << ques2[11] << " = " << answer[11] << endl;
 
-
 	cout << endl << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return 0;
-
 }
 
 int OneMoreOneLess()
@@ -331,10 +293,7 @@ int OneMoreOneLess()
 	int oneLess = 0;
 	for (int i = 0; i < 10; i++)
 	{
-
-
 		ans = rand() % 99 + 2;
-
 		cout << "Your Random Number is: " << ans << endl;
 		cout << "What Number is One More than " << ans << "? : " << endl;
 		while (!(std::cin >> oneMore))
@@ -388,7 +347,6 @@ int OneMoreOneLess()
 	wait(2);
 	system("CLS");
 	return 0;
-
 }
 
 int MoreThanLessThan()
@@ -403,14 +361,12 @@ int MoreThanLessThan()
 
 	for (int i = 0; i < 10; i++)
 	{
-
 		a = rand() % 100 + 1;
 		b = rand() % 100 + 1;
 		cout << (i + 1) << "." << " Complete the statement" << endl;
 		cout << a << "   " << b << endl;
 		cout << "Choose One: " << endl << "More Than: > " << endl <<"Less Than: < " << endl << "Equal To: = " << endl;
 		cin >> guess;
-
 		if (a > b)
 		{
 			if (guess == MoreThan)
@@ -474,15 +430,11 @@ int MoreThanLessThan()
 		}
 
 		cout << "Current Score: " << mark << endl << endl;
-
 	}
-
 	cout << "Final Score: " << mark << endl;
 	cout << endl << "Returning To Menu ..." << endl;
 	wait(2);
 	system("CLS");
-
-
 	return 0;
 }
 
@@ -499,16 +451,8 @@ void DaysOfTheWeek()
 
 	for (int i = 0; i < 10; i++)
 	{
-
-
 		x = rand() % 100 + 1;
 		day = rand() % 7 + 1;
-		//cout << x << endl;
-
-		//cout << "Today is " << WeekDays[day] << endl;
-		//cout << "Yesterday was " << WeekDays[day - 1] << endl;
-		//cout << "Tomorrow is " << WeekDays[day + 1] << endl;
-
 
 		//Tomorrow
 		//Today
@@ -521,7 +465,6 @@ void DaysOfTheWeek()
 			{
 				cout << "Correct, today is " << WeekDays[day] << endl;
 				mark = mark + 1;
-
 			}
 			else {
 				cout << "Incorrect, today is " << WeekDays[day] << endl;
@@ -532,7 +475,6 @@ void DaysOfTheWeek()
 			{
 				cout << "Correct, yesterday was " << WeekDays[day - 1] << endl;
 				mark = mark + 1;
-
 			}
 			else {
 				cout << "Incorrect, yesterday was " << WeekDays[day - 1] << endl;
@@ -549,7 +491,6 @@ void DaysOfTheWeek()
 			{
 				cout << "Correct, today is " << WeekDays[day] << endl;
 				mark = mark + 1;
-
 			}
 			else {
 				cout << "Incorrect, today is " << WeekDays[day] << endl;
@@ -560,7 +501,6 @@ void DaysOfTheWeek()
 			{
 				cout << "Correct, tomorrow is " << WeekDays[day + 1] << endl;
 				mark = mark + 1;
-
 			}
 			else {
 				cout << "Incorrect, tomorrow is " << WeekDays[day + 1] << endl;
@@ -577,7 +517,6 @@ void DaysOfTheWeek()
 			{
 				cout << "Correct, yesterday was " << WeekDays[day - 1] << endl;
 				mark = mark + 1;
-
 			}
 			else {
 				cout << "Incorrect, yesterday was " << WeekDays[day - 1] << endl;
@@ -588,7 +527,6 @@ void DaysOfTheWeek()
 			{
 				cout << "Correct, tomorrow is " << WeekDays[day + 1] << endl;
 				mark = mark + 1;
-
 			}
 			else {
 				cout << "Incorrect, tomorrow is " << WeekDays[day + 1] << endl;
@@ -616,7 +554,7 @@ void numberWords()
 		"Sixty-Six", "Sixty-Seven", "Sixty-Eight", "Sixty-Nine", "Seventy", "Seventy-One", "Seveny-Two", "Seventy-Three", "Seventy-Four", "Seventy-Five", "Seventy-Six", "Seventy-Seven",
 		"Seventy-Eight", "Seventy-Nine", "Eighty", "Eighty-One", "Eighty-Two", "Eighty-Three", "Eighty-Four", "Eighty-Five", "Eighty-Six", "Eighty-Seven", "Eighty-Eight", "Eighty-Nine",
 		"Ninety", "Ninety-One", "Ninety-Two", "Ninety-Three", "Ninety-Four", "Ninety-Five", "Ninety-Six", "Ninety-Seven", "Ninety-Eight", "Ninety-Nine", "One-Hundred" };
-	
+
 	string numbersWords2[]{ "zero","one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
 		"fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three", "twenty-four", "twenty-five", "twenty-six", "twenty-seven",
 		"twenty-eight", "twenty-nine", "thirty", "thirty-one", "thirty-two", "thirty-three", "thirty-four", "thirty-five", "thirty-six", "thirty-seven", "thirty-eight", "thirty-nine",
@@ -634,14 +572,11 @@ void numberWords()
 	cout << "E.g. 42 is spelled Forty-Two" << endl;
 	for (int i = 0; i < 10; i++)
 	{
-
 		numberRand = rand() % 100 + 0;
-		//cout << numberRand << endl;
 
 		if (numberRand >= 0 && numberRand < 50)
 		{
 			number = rand() % 100 + 0;
-			
 			cout << "Spell " << number << endl;
 			cin >> word;
 			if (word == numbersWords[number] || word == numbersWords2[number])
@@ -689,15 +624,12 @@ int clockTime()
 
 	for (int i = 0; i < 10; i++)
 	{
-
 		hours = rand() % 12 + 1;
 		minutes = rand() % 59 + 0;
 		timeTo = 60 - minutes;
-
 		cout << hours << endl;
 		cout << minutes << endl;
-		cout << timeTo << endl;
-	
+		cout << timeTo << endl;	
 		if (minutes == 0)
 		{
 			cout << "The time is " << hours << timeDesc[0] << endl;
@@ -717,7 +649,6 @@ int clockTime()
 		else if (minutes == 45)
 		{
 			cout << "The time is " << timeDesc[5] << hours << endl;
-
 		}
 		else if (minutes >= 31 && minutes <= 59 && minutes != 45)
 		{
@@ -768,22 +699,15 @@ int clockTime()
 			cout << "Incorrect! " << endl;
 			cout << "The correct time is " << hours << ":" << minutes << endl;
 		}
-		
-		
-
-
-
 	}
 	cout << "Returning To Menu ..." << endl;
 	wait(2);
 	system("CLS");
-
 	return 0;
 }
 
 int main()
 {
-
 	srand(time(NULL));
 	a = 0;
 	cout << "Select: "<< endl;
@@ -796,9 +720,8 @@ int main()
 	cout << "7. \t Days of the Week " << endl;
 	cout << "8. \t Number Words " << endl;
 	cout << "9. \t Clock Time " << endl;
-
 	cout << "To Exit: 10" << endl;
-	
+	//Make sure they only enter a number
 	while (!(std::cin >> a))
 	{
 		// reset the status of the stream
@@ -877,7 +800,6 @@ int main()
 			exit;
 		}
 	}
-	
-	return 0;
-	
+	return 0;	
 }
+

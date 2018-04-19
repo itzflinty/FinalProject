@@ -70,9 +70,11 @@ public class OneMoreOneLess : MonoBehaviour
     public Image ThreeSprite;
 
     public string filePath = "Shapes/";
+    public string sizeFilePath = "SizeImages/";
     public Image MoreThanSymbol;
     public Image LessThanSymbol;
     public Image EqualToSymbol;
+  
 
 
     //varible which will assign ans to any one of the 4 answer button
@@ -521,11 +523,10 @@ public class OneMoreOneLess : MonoBehaviour
         //string word;
         int numberAnswer;
         //gets the array place
-        int randomNumber = Random.Range(1, 100);
+        int randomNumber = Random.Range(1, 20);
         //Makes a 50/50 chance
         int x = Random.Range(0, 100);
-
-        #region WordSting numberWords numberWords2
+        
         string[] numbersWordsArray = new string[]{ "Zero","One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen",
         "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty", "Twenty One", "Twenty Two", "Twenty Three", "Twenty Four", "Twenty Five", "Twent Six", "Twenty Seven",
         "Twenty Eight", "Twenty Nine", "Thirty", "Thirty One", "Thirty Two", "Thirty Three", "Thirty Four", "Thirty Five", "Thirty Six", "Thirty Seven", "Thirty Eight", "Thirty Nine",
@@ -535,8 +536,6 @@ public class OneMoreOneLess : MonoBehaviour
         "Seventy Eight", "Seventy Nine", "Eighty", "Eighty One", "Eighty Two", "Eighty Three", "Eighty Four", "Eighty Five", "Eighty Six", "Eighty Seven", "Eighty Eight", "Eighty Nine",
         "Ninety", "Ninety One", "Ninety Two", "Ninety Three", "Ninety Four", "Ninety Five", "Ninety Six", "Ninety Seven", "Ninety Eight", "Ninety Nine", "One Hundred" };
 
-       
-        #endregion
         //get the random number
         //find what place it is in the array
         //output that as the question
@@ -572,27 +571,12 @@ public class OneMoreOneLess : MonoBehaviour
                         //if you want you can make it more difficult by reducing the range
                         if (randomNumber <= 20)
                         {
-                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(0, 20)];
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(0, 40)];
                         }
-                        else if (randomNumber <= 40 & a > 21)
-                        {
-                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(21, 40)];
-                        }
-                        else if (randomNumber <= 60 & a > 41)
-                        {
-                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(41, 60)];
-                        }
-                        else if (randomNumber <= 80 & a >= 61)
-                        {
-                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(66, 80)];
-                        }
-                        else if (randomNumber <= 100 & a >= 81)
-                        {
-                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(81, 100)];
-                        }
+                        
                         while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
                         {
-                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(0, 100)];
+                            ansButtons[i].GetComponentInChildren<Text>().text = "" + numbersWordsArray[Random.Range(0, 40)];
                         }
                     }
                 }
@@ -617,27 +601,11 @@ public class OneMoreOneLess : MonoBehaviour
                         //if you want you can make it more difficult by reducing the range
                         if (randomNumber <= 20)
                         {
-                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(0, 20);
-                        }
-                        else if (randomNumber <= 40 & randomNumber > 21)
-                        {
-                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(21, 40);
-                        }
-                        else if (randomNumber <= 60 & randomNumber > 41)
-                        {
-                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(41, 60);
-                        }
-                        else if (randomNumber <= 80 & randomNumber >= 61)
-                        {
-                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(66, 80);
-                        }
-                        else if (randomNumber <= 100 & randomNumber >= 81)
-                        {
-                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(81, 100);
+                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(0, 40);
                         }
                         while (ansButtons[j].GetComponentInChildren<Text>().text == "" + numAns)
                         {
-                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(0, 100);
+                            ansButtons[j].GetComponentInChildren<Text>().text = "" + Random.Range(0, 40);
                         }
                     }
 
@@ -799,10 +767,10 @@ public class OneMoreOneLess : MonoBehaviour
     }
     void y1Shapes3D()
     {
-        string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle" };
+        string[] shapeName = new string[] { "cone", "cube", "cuboid", "cylinder", "pyramid", "sphere" };
 
-        int k = Random.Range(0, 6);
-        if (k >= 0 && k <= 6)
+        int k = Random.Range(0, 5);
+        if (k >= 0 && k <= 5)
         {
             ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite;
         }
@@ -836,10 +804,10 @@ public class OneMoreOneLess : MonoBehaviour
     }
     void y1ShapesMix()
     {
-        string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle" };
+        string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle", "cone", "cube", "cuboid", "cylinder", "pyramid", "sphere" };
 
-        int k = Random.Range(0, 6);
-        if (k >= 0 && k <= 6)
+        int k = Random.Range(0, 12);
+        if (k >= 0 && k <= 12)
         {
             ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite;
         }
@@ -1014,7 +982,8 @@ public class OneMoreOneLess : MonoBehaviour
     void y1TimeGameplay()
     {
         int hours = Random.Range(1, 12);
-        int minutes = Random.Range(0, 59);
+        
+        int minutes = 00 +  Random.Range(0, 60);
         int timeTo = 60 - minutes;
         int prefix = 0;
 
@@ -1022,60 +991,39 @@ public class OneMoreOneLess : MonoBehaviour
         Debug.Log("Minutes: " + minutes);
         Debug.Log("Time To: " + timeTo);
 
-        string[] timeDesc = new string[] { " O'clock ", " Past", " Quater Past ", " Half Past ", " To ", " Quater To " };
+        string[] timeDesc = new string[] { " O'clock ", " Quater Past ", " Half Past ", " Quater To " };
 
         for (int i = 0; i < ansButtons.Length; i++)
         {
             if (i == locationOfAnswer)
             {
-                if (minutes == 0)
+                if (minutes >= 0 && minutes <= 15)
                 {
                     prefix = 0;
                     valueA.text = "The Time is " + hours + timeDesc[prefix];
                     //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + 0;
                 }
-                else if (minutes >= 1 && minutes <= 9 && minutes != 15)
+                else if (minutes >= 15 && minutes <= 30)
                 {
                     prefix = 1;
-                    valueA.text = "The Time is " + minutes + timeDesc[prefix] + hours;
+                    valueA.text = "The Time is " + timeDesc[prefix] + hours;
                     //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + 15;
                 }
-                else if (minutes >= 11 && minutes <= 29 && minutes != 15)
-                {
-                    prefix = 1;
-                    valueA.text = "The Time is " + minutes + timeDesc[prefix] + hours;
-                    //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
-                }
-                else if (minutes == 15)
+                else if (minutes >= 31 && minutes <= 45)
                 {
                     prefix = 2;
                     valueA.text = "The Time is " + timeDesc[prefix] + hours;
                     //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + 30;
                 }
-                else if (minutes == 30)
+                else if (minutes >= 46 && minutes <= 60)
                 {
                     prefix = 3;
-                    valueA.text = "The Time is " + timeDesc[prefix] + hours;
+                    valueA.text = "The Time is " + timeDesc[prefix] + (hours +1);
                     //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + minutes;
-                }
-                else if (minutes >= 31 && minutes <= 59 && minutes != 45)
-                {
-                    prefix = 4;
-                    valueA.text = "The Time is " + timeTo + timeDesc[prefix] + hours;
-                    //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + (hours - 1) + " : " + minutes;
-                }
-                else if (minutes == 45)
-                {
-                    prefix = 5;
-                    valueA.text = "The Time is " + timeDesc[prefix] + hours;
-                    //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + (hours - 1) + " : " + minutes;
+                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hours + " : " + 45;
                 }
             }
             else
@@ -1095,8 +1043,8 @@ public class OneMoreOneLess : MonoBehaviour
         int hundreds = Random.Range(0, 10);
         int tens = Random.Range(0, 9);
         int units = Random.Range(0, 10);
-        int third = Random.Range(1, 99);
-        int number = (hundreds * 100) + (tens * 10) + units;
+        int third = Random.Range(1, 66);
+        int number = (tens * 10) + units;
         valueA.text = "" + number;
         if (third >= 1 && third <= 33)
         {
@@ -1148,7 +1096,7 @@ public class OneMoreOneLess : MonoBehaviour
                     {
                         ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
                     }
-                    else if (ansButtons[i].GetComponentInChildren<Text>().text != "" + hundreds && ansButtons[i].GetComponentInChildren<Text>().text == "" + Random.Range(1, 9))
+                    else if (ansButtons[i].GetComponentInChildren<Text>().text != "" + tens && ansButtons[i].GetComponentInChildren<Text>().text == "" + Random.Range(1, 9))
                     {
                         ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
                     }
@@ -1164,41 +1112,7 @@ public class OneMoreOneLess : MonoBehaviour
 
             }
         }
-        else if (third >= 67 && third <= 99)
-        {
-            //How many Hundreds
-            valueB.text = "How Many Hundreds?";
-            for (int i = 0; i < ansButtons.Length; i++)
-            {
-                if (i == locationOfAnswer)
-                {
-                    //we check for location value and the assign it to the corresponding ans button 
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + hundreds;
-
-                }
-                else
-                {
-                    //for other ans button we assign random values
-                    ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
-                    
-                    if (ansButtons[i].GetComponentInChildren<Text>().text == "" + hundreds)
-                    {
-                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
-                    }
-                    else if (ansButtons[i].GetComponentInChildren<Text>().text != "" + hundreds && ansButtons[i].GetComponentInChildren<Text>().text == "" + Random.Range(1, 9))
-                    {
-                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
-                    }
-
-                    while (ansButtons[i].GetComponentInChildren<Text>().text == "" + answer)
-                    {
-                        //we make sure that only one button has answer values 
-                        ansButtons[i].GetComponentInChildren<Text>().text = "" + Random.Range(1, 9);
-                    }
-                }
-
-            }
-        }
+        
     }
     void y1Fractions()
     {
@@ -1210,44 +1124,42 @@ public class OneMoreOneLess : MonoBehaviour
     }
     void y1Sizes()
     {
-        string[] LargeImageName = new string[] { "Large" };
-        string[] MediumImageName = new string[] { "Medium" };
-        string[] SmallImageName = new string[] { "Small" };
+        string[] LargeImageName = new string[] { "LargeCircle", "LargeSquare",  "LargePentagon", "LargeCube" };
+        string[] MediumImageName = new string[] { "MediumCircle", "MediumSquare", "MediumPentagon", "MediumCube" };
+        string[] SmallImageName = new string[] { "SmallCircle", "SmallSquare", "SmallPentagon", "SmallCube" };
 
         
         int quater = Random.Range(1, 100);
         int third = Random.Range(1, 99);
-        int k = Random.Range(0, 6);
+        int k = Random.Range(0, 3);
         Debug.Log(third);
         if (third >= 1 && third <= 33)
         {
-            if (k >= 0 && k <= 6)
-            {
+            
                 //Order 1
-                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + LargeImageName[0]) as Sprite;
-                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + MediumImageName[0]) as Sprite;
-                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]) as Sprite;
-            }
+                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + LargeImageName[k]) as Sprite;
+                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + MediumImageName[k]) as Sprite;
+                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + SmallImageName[k]) as Sprite;
+            
+            
         }
         else if (third >= 34 && third <= 66)
         {
-            if (k >= 0 && k <= 6)
-            {
+           
                 //Order 2
-                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + LargeImageName[0]) as Sprite;
-                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + MediumImageName[0]) as Sprite;
-                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]) as Sprite;
-            }
+                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + LargeImageName[k]) as Sprite;
+                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + MediumImageName[k]) as Sprite;
+                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + SmallImageName[k]) as Sprite;
+            
         }
         else if (third >= 67 && third <= 99)
         {
-            if (k >= 0 && k <= 6)
-            {
+           
                 //Order 3
-                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + LargeImageName[0]) as Sprite;
-                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + MediumImageName[0]) as Sprite;
-                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + SmallImageName[0]) as Sprite;
-            }
+                TwoSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + LargeImageName[k]) as Sprite;
+                ThreeSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + MediumImageName[k]) as Sprite;
+                OneSprite.sprite = (Sprite)Resources.Load<Sprite>(sizeFilePath + SmallImageName[k]) as Sprite;
+            
         }
         if (quater >= 1 && quater <= 25)
         {
@@ -1699,10 +1611,10 @@ public class OneMoreOneLess : MonoBehaviour
     }
     void y2Shapes3D()
     {
-        string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle" };
+        string[] shapeName = new string[] { "cone", "cube", "cuboid", "cylinder", "pyramid", "sphere" };
 
-        int k = Random.Range(0, 6);
-        if (k >= 0 && k <= 6)
+        int k = Random.Range(0, 5);
+        if (k >= 0 && k <= 5)
         {
             ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite;
         }
@@ -1736,10 +1648,10 @@ public class OneMoreOneLess : MonoBehaviour
     }
     void y2ShapesMix()
     {
-        string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle" };
+        string[] shapeName = new string[] { "circle", "oval", "pentagon", "rectangle", "semicircle", "square", "triangle", "cone", "cube", "cuboid", "cylinder", "pyramid", "sphere" };
 
-        int k = Random.Range(0, 6);
-        if (k >= 0 && k <= 6)
+        int k = Random.Range(0, 12);
+        if (k >= 0 && k <= 12)
         {
             ShapeSprite.sprite = (Sprite)Resources.Load<Sprite>(filePath + shapeName[k]) as Sprite;
         }

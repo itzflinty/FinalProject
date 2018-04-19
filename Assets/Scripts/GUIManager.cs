@@ -59,7 +59,7 @@ public class GUIManager : MonoBehaviour {
     {
         //Application.LoadLevel("GamePlay"); // if you are using unity below 5.3 version
         //when player press retry button the game play scene is loaded and the game over bool is made false
-        SceneManager.LoadScene("ASMDGameplay");//use this for 5.3 version
+        SceneManager.LoadScene("MainMenu");//use this for 5.3 version
         
         //we make it false because  we need to play the game again
         GameManager.singleton.isGameOver = false;
