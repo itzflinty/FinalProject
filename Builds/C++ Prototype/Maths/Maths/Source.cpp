@@ -92,7 +92,7 @@ int addition()
 	//Returns to the main menu
 	//Clears the Screen
 	cout << endl << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return 0;
 }
@@ -158,7 +158,7 @@ int subtraction()
 	cout << "10. " << "\t" << ques1[9] << " - " << ques2[9] << " = " << answer[9] << endl;
 	
 	cout << endl << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return 0;
 }
@@ -213,7 +213,7 @@ int division()
 	cout << "10. " << "\t" << ques1[9] << " / " << ques2[9] << " = " << answer[9] << endl;
 	
 	cout << endl <<"Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return 0;
 }
@@ -344,7 +344,7 @@ int OneMoreOneLess()
 	}
 
 	cout << endl << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return 0;
 }
@@ -433,7 +433,7 @@ int MoreThanLessThan()
 	}
 	cout << "Final Score: " << mark << endl;
 	cout << endl << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return 0;
 }
@@ -538,7 +538,7 @@ void DaysOfTheWeek()
 		}
 	}
 	cout << endl << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return;
 }
@@ -606,7 +606,7 @@ void numberWords()
 		}
 	}
 	cout << endl << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return;
 }
@@ -701,7 +701,7 @@ int clockTime()
 		}
 	}
 	cout << "Returning To Menu ..." << endl;
-	wait(2);
+	wait(5);
 	system("CLS");
 	return 0;
 }

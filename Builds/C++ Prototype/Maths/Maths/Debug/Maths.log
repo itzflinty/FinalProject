@@ -1,2 +1,5 @@
-﻿  Maths.vcxproj -> E:\Uni\FinalProject\Builds\C++ Prototype\Maths\Debug\Maths.exe
-  Maths.vcxproj -> E:\Uni\FinalProject\Builds\C++ Prototype\Maths\Debug\Maths.pdb (Partial PDB)
+﻿  Source.cpp
+i:\uni\finalproject\builds\c++ prototype\maths\maths\source.cpp(711): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+i:\uni\finalproject\builds\c++ prototype\maths\maths\source.cpp(800): warning C4551: function call missing argument list
+  Maths.vcxproj -> I:\Uni\FinalProject\Builds\C++ Prototype\Maths\Debug\Maths.exe
+  Maths.vcxproj -> I:\Uni\FinalProject\Builds\C++ Prototype\Maths\Debug\Maths.pdb (Partial PDB)
